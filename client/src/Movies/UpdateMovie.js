@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from 'react'
-import { useParams} from "react-router-dom";
+import { useParams, useHistory, Link } from "react-router-dom";
 import MovieList from './MovieList';
 import axios from 'axios'
 
 
 const UpdateMovie = props => {
 
+    const history = useHistory()
     const params = useParams()
     // const [movie, setMovie] = {}
 
@@ -40,7 +41,9 @@ const UpdateMovie = props => {
         event.preventDefault()
         axios
             .put(`http://localhost:5000/api/movies/${params.id}`,movie)
-            .then(res => console.log(res))
+            .then(
+                setMovie(initialMovie),
+                history.push("/movies"))
             .catch(err => console.log(err))
 
     }
@@ -68,7 +71,9 @@ const UpdateMovie = props => {
                     <input onChange = {handleChange} type = "text" name = "metascore" value = {movie.metascore}/>
                 </div>
                 <div>
-                    <button onClick = {handleSubmit}>Submit Edit</button>
+                    
+                <button onClick = {handleSubmit}>Submit Edit</button>
+                    
                 </div>
             </div>
             
