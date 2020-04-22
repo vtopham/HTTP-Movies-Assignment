@@ -42,8 +42,9 @@ const UpdateMovie = props => {
         setMovie(initialMovie)
         axios
             .put(`http://localhost:5000/api/movies/${params.id}`,movie)
-            .then(
-                history.push(`/movies/${params.id}`))
+            .then(res => {
+                props.getMovieList()
+                history.push(`/movies/${params.id}`)})
             .catch(err => console.log(err))
         
     }
