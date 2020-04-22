@@ -14,7 +14,7 @@ function SavedList({ list }) {
             key={movie.id}
             activeClassName="saved-active"
           >
-            <span className="saved-movie">{movie.title}</span>
+            <span className="saved-movie window">{movie.title}</span>
           </NavLink>
         );
       })}
