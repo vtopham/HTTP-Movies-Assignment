@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { useParams, useHistory, Link, Redirect } from "react-router-dom";
 import MovieCard from "./MovieCard";
+import '98.css'
 
 //The movie card
 function Movie({ addToSavedList, getMovieList }) {

@@ -1,4 +1,5 @@
 import React from 'react';
+import '98.css'
 
 //The card for the movie itself, formatting the movie info
 const MovieCard = props => {

@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import axios from 'axios'
 import { useParams, useHistory, Link } from "react-router-dom";
+import '98.css'
 
 //This will add a movie to the movielist
 const AddMovie = ({ getMovieList }) => {

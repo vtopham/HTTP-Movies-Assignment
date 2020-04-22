@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { useParams, useHistory, Link } from "react-router-dom";
 import MovieList from './MovieList';
 import axios from 'axios'
+import '98.css'
 
 //This allows you to edit a movie's information
 const UpdateMovie = props => {
