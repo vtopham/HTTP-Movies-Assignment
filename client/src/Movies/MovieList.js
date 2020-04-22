@@ -2,6 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import MovieCard from "./MovieCard";
 
+//Maps over the list of movies and produces moviecards
 function MovieList({ movies }) {
   return (
     <>

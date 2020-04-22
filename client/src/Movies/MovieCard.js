@@ -1,5 +1,6 @@
 import React from 'react';
 
+//The card for the movie itself, formatting the movie info
 const MovieCard = props => {
   const { title, director, metascore, stars } = props.movie;
   return (

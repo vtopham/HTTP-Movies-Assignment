@@ -11,6 +11,7 @@ const App = () => {
   const [savedList, setSavedList] = useState([]);
   const [movieList, setMovieList] = useState([]);
 
+  //get our initial list of movies from the api
   const getMovieList = () => {
     axios
       .get("http://localhost:5000/api/movies")
@@ -18,10 +19,12 @@ const App = () => {
       .catch(err => console.log(err.response));
   };
 
+  //allows us to add to the saved list
   const addToSavedList = movie => {
     setSavedList([...savedList, movie]);
   };
 
+  //at first render, get the list of movies
   useEffect(() => {
     getMovieList();
   }, []);

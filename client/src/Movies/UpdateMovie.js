@@ -3,12 +3,11 @@ import { useParams, useHistory, Link } from "react-router-dom";
 import MovieList from './MovieList';
 import axios from 'axios'
 
-
+//This allows you to edit a movie's information
 const UpdateMovie = props => {
 
     const history = useHistory()
     const params = useParams()
-    // const [movie, setMovie] = {}
 
     const initialMovie = {
         id: "",
@@ -18,8 +17,9 @@ const UpdateMovie = props => {
         stars: ""
     }
 
-    const [movie, setMovie] = useState(initialMovie)
+    const [movie, setMovie] = useState(initialMovie) //set up initial state using a blank slate for the movie info
 
+    //at render, request the movie data and set the state with that data
     useEffect(() => {
         axios
           .get(`http://localhost:5000/api/movies/${params.id}`)
@@ -27,7 +27,7 @@ const UpdateMovie = props => {
           .catch((err) => console.log(err.response));
     },[])
 
-
+    //this allows the user's changes in the form to be reflected in the state
     const handleChange = event => {
         event.preventDefault();
         setMovie({
@@ -35,8 +35,9 @@ const UpdateMovie = props => {
             [event.target.name]: event.target.value
         })
         
-    }
+    }   
 
+    //handles submission by using a pust request, then refreshing the data and pushing to the card for that movie so you can see your changes
     const handleSubmit = event => {
         event.preventDefault()
         setMovie(initialMovie)
@@ -52,7 +53,7 @@ const UpdateMovie = props => {
 
 
     
-    
+    //loading message if movie hasn't been fetched by the api yet
     if (!movie) {
         return <h2>Loading Movie Data!</h2>
     }

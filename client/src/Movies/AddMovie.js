@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import axios from 'axios'
 import { useParams, useHistory, Link } from "react-router-dom";
 
+//This will add a movie to the movielist
 const AddMovie = ({ getMovieList }) => {
 
     const history = useHistory()
@@ -14,8 +15,9 @@ const AddMovie = ({ getMovieList }) => {
         stars: []
     }
 
-    const [newMovie, setNewMovie] = useState(initialMovie)
+    const [newMovie, setNewMovie] = useState(initialMovie) //set up state for our form using a blank state at first
 
+    //this will update our state as changes are made in the form
     const handleChange = event => {
         event.preventDefault();
         setNewMovie({
@@ -25,6 +27,7 @@ const AddMovie = ({ getMovieList }) => {
 
     }
 
+    //this submits the new movie by making a post request, then refreshing the data, resetting the form and redirecting
     const handleSubmit = event => {
         event.preventDefault();
         axios

@@ -1,6 +1,7 @@
 import React from 'react';
 import { NavLink, Link } from 'react-router-dom';
 
+//Shows the list of saved movies
 function SavedList({ list }) {
   return (
     <div className="saved-list">
