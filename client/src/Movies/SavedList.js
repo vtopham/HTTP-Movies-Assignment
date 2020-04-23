@@ -1,6 +1,8 @@
 import React from 'react';
 import { NavLink, Link } from 'react-router-dom';
+import '98.css'
 
+//Shows the list of saved movies
 function SavedList({ list }) {
   return (
     <div className="saved-list">
@@ -12,12 +14,12 @@ function SavedList({ list }) {
             key={movie.id}
             activeClassName="saved-active"
           >
-            <span className="saved-movie">{movie.title}</span>
+            <span className="saved-movie window">{movie.title}</span>
           </NavLink>
         );
       })}
       <div className="home-button">
-        <Link to="/">Home</Link>
+        <Link to="/"><button>Home</button></Link>
       </div>
     </div>
   );
